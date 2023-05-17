@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width-device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="script.js"></script>
+    <title>Restaurant Selector | Homepage</title>
+
+    <!--Sets the font of the website-->
+    <script
+      src="https://kit.fontawesome.com/83f249e1f9.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!--Bootstrap css-->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <!--API key for google maps locator-->
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHxa_Z8raU2SNdKiT4kfee68Ho0Ywnroo&libraries=places&callback=initMap"
+    ></script>
+
+    <style>
+      #searchButton:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="square">
+        <!--Text side of the square-->
+        <div class="text-side">
+          <h1>Restaurant Generator</h1>
+          <p>Can't decide where to eat?</p>
+          <p>
+            Enter your information, and we will randomly select a restaurant for
+            you!
+          </p>
+          <div class="checkboxes">
+            <input type="checkbox" id="fastFood" name="fastFood" />
+            <label for="fastFood">Fast Food</label>
+            <input type="checkbox" id="slowFood" name="slowFood" />
+            <label for="slowFood">Slow Food</label>
+          </div>
+          <!-- Wrap the range text and the slider in a div with class "slider-container" -->
+          <!-- Set min value to 0, max value to 100, and initial value to 0 -->
+          <div class="slider-container">
+            <p id="rangeOutput">1 km</p>
+            <input
+              type="range"
+              min="1"
+              max="10"
+              value="0"
+              class="slider"
+              id="rangeSlider"
+            />
+          </div>
+          <!-- Add the submit button here -->
+          <div class="submit-container">
+            <button class="submit-btn" id="submitBtn" onclick="animateButton()">
+              <span>Generate</span>
+              <div class="circle-loader" id="circleLoader"></div>
+            </button>
+          </div>
+        </div>
+        <!--Content side of the square-->
+        <div class="content-side">
+          <div id="map"></div>
+          <div id="loadingScreen">
+            <div>
+              <div class="spinner-border text-primary" role="status">
+              </div>
+            </div>
+          </div>
+          <div id="restaurantDetails"></div>
+        </div>
+      </div>
+      <nav class="navbar">
+        <!--GitHub icon-->
+        <a
+          href="https://github.com/CarsonLeee"
+          target="_blank"
+          class="icon-button"
+        >
+          <i class="fab fa-github"></i>
+        </a>
+        <!--LinkedIn icon-->
+        <a
+          href="https://www.linkedin.com/in/carson-lee/"
+          target="_blank"
+          class="icon-button"
+        >
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <!--Personal Website icon-->
+        <a
+          href="http://carsonlee.ca/"
+          target="_blank"
+          class="icon-button"
+        >
+          <i class="fas fa-globe"></i>
+        </a>
+        <a
+          href="mailto:carson0@hotmail.com"
+          target="_blank"
+          class="icon-button"
+        >
+          <i class="fas fa-envelope"></i>
+        </a>
+        <button id="darkModeBtn" class="icon-button">
+          <i class="fas fa-moon" style="padding: 5px 10px"></i>
+        </button>
+      </nav>
+    </div>
+  </body>
+</html>
